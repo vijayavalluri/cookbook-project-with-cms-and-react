@@ -2,6 +2,8 @@ import './App.scss';
 import { useRef, useEffect, useState } from 'react';
 import {motion} from 'framer-motion';
 import useContentful from "./useContentful";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   const [foods, setFoods] = useState();
