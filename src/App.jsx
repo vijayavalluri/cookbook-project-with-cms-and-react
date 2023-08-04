@@ -16,11 +16,17 @@ function App() {
         setFoods(res);
       })
       .catch((error) => console.log(error));
-
-    console.log(carousel.current.scrollWidth, carousel.current.offsetWidth);
-    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-  },[]);
-
+  }, []); // Only run once, after the initial render
+  
+  useEffect(() => {
+    if (carousel.current) {
+      console.log(carousel.current.scrollWidth, carousel.current.offsetWidth);
+      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    }
+  }, [carousel.current]); // Re-run whenever the carousel ref changes
+  
+  
+  
   return (
     <div className="App">
       <motion.div ref={carousel} className="carousel" whileTap={{cursor: "grabbing"}}>
@@ -38,10 +44,14 @@ function App() {
     <div className="item-wrap">
     <h3 
   className="title" 
-  onMouseDown={(e) => e.stopPropagation()} /* prevent interference with drag */
+  onMouseDown={(e) => {
+    e.stopPropagation();
+    console.log('Title Mouse Down'); // add this line
+  }}
 >
   {food.title}
 </h3>
+
         <img src={food.img} alt={food.title} />
     </div>
 </motion.div>

@@ -23,17 +23,15 @@
 
 .carousel {
     cursor: grab;
-    overflow: hidden;
+//*    overflow: hidden; *//
     transition: 0.3s all ease-in-out;
 
 }
   
   html {
-    overflow: hidden;
     background: rgba(66, 34, 0, 0.636);
     overflow-y: scroll;
     scroll-behavior: smooth;
-
     
   }
 
