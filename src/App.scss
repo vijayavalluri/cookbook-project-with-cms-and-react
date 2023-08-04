@@ -1,0 +1,36 @@
+.item {
+    min-height: 30rem;
+    min-width: 20rem;
+    padding: 40px;
+  transition: all 0.3s ease;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    border-style: double;
+    border-color: rgba(240, 248, 255, 0.207);
+    box-shadow: 0 0 10px #ffffffb2, 0 0 15px #ffffff53, 0 0 20px #ffffff78, 0 0 25px #ffffff82, 0 0 30px #ffffff84;
+}
+
+.inner-carousel {
+    display:flex;
+
+}
+
+.carousel {
+    cursor: grab;
+    overflow: hidden;
+    transition: 0.3s all ease-in-out;
+
+}
+  
+  html {
+    overflow: hidden;
+    background: rgba(66, 34, 0, 0.636);
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+    
+  }
