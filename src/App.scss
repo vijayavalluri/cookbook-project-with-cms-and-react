@@ -1,18 +1,20 @@
 .item {
-    min-height: 30rem;
-    min-width: 20rem;
-    padding: 40px;
+    min-height: 20rem;
+    width: 30%;
+    padding: 80px;
   transition: all 0.3s ease;
 }
 
 .item img {
-    width: 100%;
-    height: 100%;
+  width: 30vh;
+  height: auto;
     border-radius: 2rem;
     border-style: double;
     border-color: rgba(240, 248, 255, 0.207);
     box-shadow: 0 0 10px #ffffffb2, 0 0 15px #ffffff53, 0 0 20px #ffffff78, 0 0 25px #ffffff82, 0 0 30px #ffffff84;
 }
+
+
 
 .inner-carousel {
     display:flex;
@@ -34,3 +36,87 @@
 
     
   }
+
+// Styling for each item
+.item {
+  border: none; // No border around the item
+  margin-bottom: 30px; // Space below each item
+}
+
+// Styling for the wrapper around the image, title, and description
+.item .item-wrap {
+  display: block; // Display as a block element
+  position: relative; // Positioning context for absolute positioned children
+  
+}
+
+
+
+.item .item-wrap:after {
+  position: absolute;
+  content: "";
+  top:-0.5rem;
+  left: -0.5rem;
+  right: -6.6rem;
+  bottom: -0.5rem;
+  background: rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s all ease-in-out;
+  border-radius: 2rem;
+  mix-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.326);
+}
+
+// Styling for the image
+.item .item-wrap img {
+  transition: 0.3s transform ease; // Smooth transition for transformations
+  transform: scale(1); // Start at normal size
+}
+
+// Common styling for the title and description
+.item .item-wrap .title, .item .item-wrap .description {
+  position: absolute; // Positioned relative to the item-wrap
+  top: 50%; // Center vertically
+  right: -25%;
+  width: 100%; // Full width of the item-wrap
+  text-align: center; // Center the text horizontally
+  z-index: 3; // Stack order, higher than the image and overlay
+  transform: translateY(-50%); // Shift up by half its own height to center vertically
+  color: #fff; // White text
+  opacity: 0; // Fully transparent by default
+  margin-top: 20px; // Space above the text
+  transition: 0.3s all ease; // Smooth transition for all properties
+}
+
+// Styling for the title
+.item .item-wrap .title {
+  font-size: 20px; // Font size of the title
+  margin-bottom: 0; // No space below the title
+}
+
+
+
+// Styling for the item-wrap on hover
+.item .item-wrap:hover {
+  text-decoration: none; // No text decoration on hover
+}
+
+// Styling for the image on hover
+.item .item-wrap:hover img {
+  transform: scale(1.05); // Scale up the image slightly
+}
+
+// Styling for the overlay on hover
+.item .item-wrap:hover:after {
+  opacity: 1; // Fully opaque
+  visibility: visible; // Visible
+}
+
+// Styling for the title and description on hover
+.item .item-wrap:hover .title, .item .item-wrap:hover .description {
+  margin-top: 0px; // Remove the space above the text
+  opacity: 1; // Fully opaque
+  visibility: visible; // Visible
+}
+

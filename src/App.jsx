@@ -34,11 +34,17 @@ function App() {
           ) : (
             foods.map((food) => {
               return(
-                <motion.div className="item" key={food.title}>
-                  <h2>{food.title}</h2>
-                  <p>{food.description}</p>
-                  <img src={food.img} alt={food.title} />
-                </motion.div>
+<motion.div className="item" key={food.title}>
+    <div className="item-wrap">
+    <h3 
+  className="title" 
+  onMouseDown={(e) => e.stopPropagation()} /* prevent interference with drag */
+>
+  {food.title}
+</h3>
+        <img src={food.img} alt={food.title} />
+    </div>
+</motion.div>
               )
             })
           )}
