@@ -13,22 +13,37 @@ const useContentful = () => {
         content_type: "food",
         select: "fields"
       });
-
+  
       const saniEntries = entries.items.map((item) => {
+        const id = item.sys.id; // Add this line
         const title = item.fields.title;
         const description = item.fields.description;
         const img = item.fields.img[0].fields.file.url;
-
-        return { title, description, img };
+  
+        return { id, title, description, img }; // Include id here
       });
-
+  
       return saniEntries;
     } catch (error) {
       console.log(error);
     }
   };
 
-  return { getFoods };
+  const getFoodById = async (id) => {
+    try {
+      const entry = await client.getEntry(id);
+
+      const title = entry.fields.title;
+      const description = entry.fields.description;
+      const img = entry.fields.img[0].fields.file.url;
+
+      return { title, description, img };
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return { getFoods, getFoodById };
 };
 
 export default useContentful;
