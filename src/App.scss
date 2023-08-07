@@ -1,12 +1,25 @@
+.saffron-text {
+  font-family: 'Cormorant', serif;
+  font-size: 40px;
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: none;
+  
+  // Adding these styles will center your text
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .item {
     min-height: 20rem;
     width: 30%;
-    padding: 80px;
+    padding: 90px;
   transition: all 0.3s ease;
 }
 
 .item img {
-  width: 30vh;
+  width: 35vh;
   height: auto;
     border-radius: 2rem;
     border-style: double;
@@ -48,15 +61,13 @@
   
 }
 
-
-
 .item .item-wrap:after {
   position: absolute;
   content: "";
-  top:-0.5rem;
-  left: -0.5rem;
-  right: -6.6rem;
-  bottom: -0.5rem;
+  top:0rem;
+  left: 0rem;
+  right: 0rem;
+  bottom: 0rem;
   background: rgba(0, 0, 0, 0.4);
   visibility: hidden;
   opacity: 0;
@@ -76,7 +87,6 @@
 .item .item-wrap .title, .item .item-wrap .description {
   position: absolute; // Positioned relative to the item-wrap
   top: 50%; // Center vertically
-  right: -25%;
   width: 100%; // Full width of the item-wrap
   text-align: center; // Center the text horizontally
   z-index: 3; // Stack order, higher than the image and overlay
@@ -117,4 +127,3 @@
   opacity: 1; // Fully opaque
   visibility: visible; // Visible
 }
-
