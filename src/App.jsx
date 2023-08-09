@@ -10,6 +10,7 @@ const [foods, setFoods] = useState([]);
   const { getFoods } = useContentful();
   const [width, setWidth] = useState(0)
   const carousel = useRef();
+  const constraintsRef = useRef(null);
 
   useEffect(() => {
     getFoods()
@@ -20,50 +21,54 @@ const [foods, setFoods] = useState([]);
       .catch((error) => console.log(error));
   }, []); // Only run once, after the initial render
   
-  useEffect(() => {
-    if (carousel.current) {
-      console.log(carousel.current.scrollWidth, carousel.current.offsetWidth);
-      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-    }
-  }, [carousel.current]); // Re-run whenever the carousel ref changes
+useEffect(() => {
+  if (carousel.current) {
+    const resizeObserver = new ResizeObserver(entries => {
+      for (let entry of entries) {
+        setWidth(entry.target.scrollWidth - entry.target.offsetWidth);
+      }
+    });
+
+    resizeObserver.observe(carousel.current);
+
+    // Clean up function
+    return () => resizeObserver.disconnect();
+  }
+}, []); // Only run once, after the initial render
+
+
+useEffect(() => {
+  console.log('Updated width:', width);
+}, [width]); // Re-run whenever width changes
 
     return (
 <Router>
+<h1>Saffron Recipes</h1>
+<h5>SINCE 2023</h5>
   <Routes>
     <Route path="/" element={
       <div className="App">
-        <motion.div ref={carousel} className="carousel" whileTap={{cursor: "grabbing"}}>
-          <motion.div 
-            drag="x" 
-            dragConstraints={{ right: 0, left: -width }}
-            className="inner-carousel"
-          >
-            { foods.map((food) => {
-                return(
-                  <Link to={`/recipe/${food.id}`} key={food.id}>                  
-                    <motion.div className="item">
-                      <div className="item-wrap">
-                        <h3 
-                          className="title" 
-                          onMouseDown={(e) => {
-                            e.stopPropagation();
-                            console.log('Title Mouse Down'); // add this line
-                          }}
-                        >
-                          {food.title}
-                        </h3>
-                        <img src={food.img} alt={food.title} />
-                      </div>
-                    </motion.div>
-                  </Link>
-                )
-              })}
-          </motion.div>
+<motion.div className="carousel-container" >
+  <motion.div className="inner-carousel" drag="x" dragConstraints={{ right: -width }}>
+    {foods.map((food) => {
+      return (
+        <motion.div className="item" key={food.id}>
+          <Link to={`/recipe/${food.id}`}>
+            <div className="item-wrap">
+              <h3 className="title">{food.title}</h3>
+              <img src={food.img} alt={food.title} />
+            </div>
+          </Link>
         </motion.div>
+      );
+    })}
+  </motion.div>
+</motion.div>
       </div>
     } />
       <Route path="/recipe/:id" element={<RecipeDetail />} />
   </Routes>
+  <h6>Made by Jerry & Vijaya</h6>
 </Router>
     )}
 
