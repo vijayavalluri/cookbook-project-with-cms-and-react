@@ -43,7 +43,7 @@ useEffect(() => {
 
     return (
 <Router>
-<h1>Saffron Recipes</h1>
+<h1>Foodie Recipes</h1>
 <h5>SINCE 2023</h5>
   <Routes>
     <Route path="/" element={
