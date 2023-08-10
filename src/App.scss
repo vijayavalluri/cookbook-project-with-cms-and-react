@@ -1,3 +1,75 @@
+// .container {
+//   display: flex;
+//   align-items: center;
+// }
+
+// .imageside {
+//   max-width: 10%;
+//   // height: auto;
+//   margin-right: 20px;
+// }
+
+
+// .n-format {
+//   flex: 1;
+//   display: block;
+//   position: relative;
+ 
+// }
+
+
+.recipe-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+  transition: all 0.3s ease;
+}
+
+.container{
+  // transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:80px;
+  }
+
+  .container img, .container p {
+    flex-grow: 0;
+  }
+
+  .container img {
+    width:230px;
+    height:210px;
+    margin-left: -120px;
+  }
+
+  .container, p {
+    width:250px;
+    height:200px;
+    
+  }
+
+  div.n-format p{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 15px;
+    padding-left: 8%;
+    border-radius: 5px;
+}
+  
+  div.n-format {
+  display: block;
+  position: relative;
+}
+
+div.n-format h5{
+  font-size: 8px;
+}
+
+
 .saffron-text {
   font-family: 'Cormorant', serif;
   font-size: 40px;
