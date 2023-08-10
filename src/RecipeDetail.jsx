@@ -22,8 +22,15 @@ const RecipeDetail = () => {
   return (
     <div className="recipe-detail">
       <h2>{food.title}</h2>
-      <img src={food.img} alt={food.title} />
-      <p>{food.description}</p>
+      <div className="container" >
+          <div className="imageside"><img src={food.img} alt={food.title}/></div> 
+          <div className="n-format">
+           <h5>FEATURED DISH</h5>
+            <p>{food.description}</p>
+           
+          </div>
+      </div>
+    
     </div>
   )
 }
