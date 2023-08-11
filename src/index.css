@@ -8,7 +8,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-p {
+.recipe-detail .text {
   /*  Line height is fluid, but clamped to a multiple of 4  */
   line-height: round(
     calc(var(--font-size-base) * var(--line-height-normal)),
@@ -90,4 +90,38 @@ h6 {
   text-decoration: none;
   color: antiquewhite;
   margin-left: 20px;
+}
+
+@media (min-width: 1024px) {
+  .recipe-detail h2 {
+    font-size: 3em; /* adjust as needed */
+    position: absolute;
+    right: 38%;
+    top:15%;
+  }
+
+  .recipe-detail .imageside img {
+    width: fit-content;
+    max-width: 400px; /* adjust as needed */
+    height: 100%; /* adjust as needed */
+    position: relative;
+    top:60px;
+    right: 50%;
+  }
+
+  .recipe-detail .n-card-caption {
+    font-size: 1.2em; /* adjust as needed */
+    position: relative;
+    bottom:160px;
+    right: 137%;
+  }
+
+  .recipe-detail .text {
+    font-size: 1.5em; /* adjust as needed */
+    position: relative;
+    bottom:110px;
+    right: 100px;
+    text-align: left;
+    width: 400px;
+  }
 }
