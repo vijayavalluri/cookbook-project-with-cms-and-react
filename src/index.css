@@ -53,9 +53,9 @@ width:80px;
   
 } */
 
-h1 {
+.home-link {
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
   font-family: 'Cormorant', serif;
   font-size: 50px;
@@ -92,18 +92,27 @@ h6 {
   margin-left: 20px;
 }
 
+
 @media (min-width: 1024px) {
   .recipe-detail h2 {
     font-size: 3em; /* adjust as needed */
     position: absolute;
-    right: 38%;
-    top:15%;
+    top:130px;
+    left: 0;
+    margin-left: 330px;
+
+    line-height: round(
+      calc(var(--font-size-base) * var(--line-height-normal)),
+      var(--grid-size)
+    );
+    max-width: 66ch;
+    
   }
 
   .recipe-detail .imageside img {
     width: fit-content;
     max-width: 400px; /* adjust as needed */
-    height: 100%; /* adjust as needed */
+    height: 500px; /* adjust as needed */
     position: relative;
     top:60px;
     right: 50%;
@@ -125,3 +134,4 @@ h6 {
     width: 400px;
   }
 }
+
