@@ -80,7 +80,7 @@ h5 {
 }
 
 h6 {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   font-family: 'Cormorant', serif;
@@ -91,7 +91,6 @@ h6 {
   color: antiquewhite;
   margin-left: 20px;
 }
-
 
 @media (min-width: 1024px) {
   .recipe-detail h2 {
