@@ -25,8 +25,11 @@ const RecipeDetail = () => {
       <div className="container" >
           <div className="imageside"><img src={food.img} alt={food.title}/></div> 
           <div className="n-format">
-           <h5>FEATURED DISH</h5>
-            <p>{food.description}</p>
+            <div className= "n-card-text">
+           <h4 class="n-card-caption">FEATURED DISH</h4>
+           </div>
+            <p className="text" >{food.description}</p>
+
            
           </div>
       </div>
